@@ -36,6 +36,20 @@ A cute and interactive website to ask that special someone to be your Valentine!
     ```
     Open the link shown in your terminal (usually `http://localhost:5173`) to view the site.
 
+## 📦 How to Deploy
+
+This project is ready to be deployed to Netlify, Vercel, or GitHub Pages.
+
+1.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+    This will create a `dist` folder containing your optimized website.
+
+2.  **Deploy to Netlify (Drag & Drop):**
+    *   Go to [Netlify Drop](https://app.netlify.com/drop).
+    *   Drag and drop the `dist` folder into the upload area.
+    *   Your site will be live instantly!
 
 ## 📂 Project Structure
 

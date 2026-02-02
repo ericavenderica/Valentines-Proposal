@@ -24,9 +24,51 @@ document.addEventListener('DOMContentLoaded', () => {
             "You're breaking my heart ;(",
         ];
 
-        btnNo.addEventListener('click', () => {
+        const moveButton = () => {
+            const container = document.querySelector('.view.active');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = btnNo.getBoundingClientRect();
+
+            const maxX = containerRect.width - btnRect.width;
+            const maxY = containerRect.height - btnRect.height;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            btnNo.style.position = 'absolute';
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+        };
+
+        btnNo.style.transition = "all 0.3s ease"; 
+
+        btnNo.addEventListener('mouseover', () => {
+             setTimeout(moveButton, 200); 
+        });
+
+        btnNo.addEventListener('touchstart', (e) => {
+            e.preventDefault(); 
             btnNo.textContent = noTexts[noClickCount % noTexts.length];
             noClickCount++;
+
+            moveButton();
+
+            const currentSize = parseFloat(window.getComputedStyle(btnYes).fontSize);
+            const newSize = currentSize * 1.3; 
+            btnYes.style.fontSize = `${newSize}px`;
+            
+            const currentPaddingTop = parseFloat(window.getComputedStyle(btnYes).paddingTop);
+            const currentPaddingRight = parseFloat(window.getComputedStyle(btnYes).paddingRight);
+            btnYes.style.padding = `${currentPaddingTop * 1.1}px ${currentPaddingRight * 1.1}px`;
+        });
+
+        btnNo.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            btnNo.textContent = noTexts[noClickCount % noTexts.length];
+            noClickCount++;
+
+            moveButton();
 
             const currentSize = parseFloat(window.getComputedStyle(btnYes).fontSize);
             const newSize = currentSize * 1.3; 
