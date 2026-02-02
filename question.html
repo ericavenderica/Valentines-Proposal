@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="app">
+        <section class="view active">
+            <h1 class="question-header">♡ Will you be my Valentine? ♡</h1>
+            <div class="characters-container">
+                <img src="couple-selfie.png" alt="Cartoon Couple Selfie" loading="eager" fetchpriority="high">
+            </div>
+            <div class="actions">
+                <a href="message.html" id="btn-yes" class="btn-pill btn-large" style="text-decoration: none; display: inline-block;">Yes</a>
+                <button id="btn-no" class="btn-pill btn-large">No</button>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="js/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
