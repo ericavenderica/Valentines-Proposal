@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    const page = path.split("/").pop();
-
-    if (page === 'question.html') {
-        const btnNo = document.getElementById('btn-no');
+    // Question Page Logic
+    const btnNo = document.getElementById('btn-no');
+    if (btnNo) {
         const btnYes = document.getElementById('btn-yes');
         let noClickCount = 0;
         const noTexts = [
@@ -78,15 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentPaddingRight = parseFloat(window.getComputedStyle(btnYes).paddingRight);
             btnYes.style.padding = `${currentPaddingTop * 1.1}px ${currentPaddingRight * 1.1}px`;
         });
+        
+        createBackgroundHearts();
     }
 
-    if (page === 'message.html') {
+    // Message Page Logic
+    const viewResult = document.getElementById('view-result');
+    if (viewResult) {
         launchConfetti();
         createBackgroundHearts();
     }
     
-    if (page === 'question.html' || page === 'index.html' || page === '') {
-        createBackgroundHearts();
+    // Index Page Logic (or fallback if neither)
+    // Check if we are on index page by checking for unique element or absence of others
+    if (!btnNo && !viewResult) {
+         createBackgroundHearts();
     }
 });
 
